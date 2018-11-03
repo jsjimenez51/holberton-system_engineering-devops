@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script that displays numbers from 1 to 20 with special prints
+ct=1
+while [ $ct -le 20 ]
+do
+	echo $ct
+	case $ct in
+	     	4)
+			echo "bad luck from China";;
+		9)
+			echo "bad luck from Japan";;
+		17)
+			echo "bad luck from Italy";;
+	esac
+	ct=$((ct + 1))
+done
