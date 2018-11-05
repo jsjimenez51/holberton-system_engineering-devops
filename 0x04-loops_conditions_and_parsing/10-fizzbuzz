@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# script that displays numbers from 1 to 100
+CT=1
+while [ $CT -le 100 ]
+do
+a=$CT%15
+b=$CT%5
+c=$CT%3
+	if [[ $a -eq 0 ]]
+	then
+		echo "FizzBuzz"
+	elif [[ $b -eq 0 ]]
+	then
+		echo "Buzz"
+	elif [[ $c -eq 0 ]]
+	then
+		echo "Fizz"
+	else
+		echo $CT
+	fi
+		let CT=CT+1
+done
