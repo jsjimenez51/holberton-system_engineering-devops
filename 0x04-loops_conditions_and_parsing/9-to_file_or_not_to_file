@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# script that gives information about the holbertonschool file
+HSFILE="holbertonschool"
+if [ -e $HSFILE ]
+then
+	echo "holbertonschool file exists"
+	if [ -s $HSFILE ]
+	then
+		echo "holbertonschool file is not empty"
+	else
+		echo "holbertonschool file is empty"
+	fi
+	if [ -f $HSFILE ]
+	then
+		echo "holbertonschool is a regular file"
+	fi
+else
+	echo "holbertonschool file does not exit"
+fi
