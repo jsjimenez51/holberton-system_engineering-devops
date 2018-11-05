@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# displays a list of content for the current directory
+LIST=$(ls | sort)
+for i in $LIST; do
+echo "$i" | cut -d "-" -f2
+done
