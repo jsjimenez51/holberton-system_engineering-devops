@@ -1,0 +1,9 @@
+################################################################################
+# File:   SSH client configuration
+# Author: Josh Jimenez
+################################################################################
+
+Host *
+     IdentityFile ~/.ssh/holberton
+     User ubuntu
+     PasswordAuthentication no
