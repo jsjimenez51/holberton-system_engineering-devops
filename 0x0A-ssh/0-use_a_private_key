@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # uses ssh to connect to a remote server using a private key
 
-ssh -i ~/.ssh/holberton ubuntu@104.196.7.50
+ssh -i ~/.ssh/holberton ubuntu@34.73.230.78
