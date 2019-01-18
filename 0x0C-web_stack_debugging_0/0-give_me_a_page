@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Updates and Installs an Apache Server to debug a Docker Container
+# 1) server may not have been installed on server 2) server was not instantiated in container
+sudo apt-get update
+sudo apt-get -y install apache2
+service apache2 restart
