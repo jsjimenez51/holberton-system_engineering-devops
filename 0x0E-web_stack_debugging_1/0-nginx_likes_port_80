@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# creates symlink between sites enabled / available
+# Re-configures a Nginx server to listen on port 80
 
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+FILE=/etc/nginx/sites-enabled/default
+OLDPORT='8080 default_server'
+NEWPORT='80 default_server'
+
+sudo sed -i "s/$OLDPORT/$NEWPORT/" $FILE
+
 sudo service nginx restart
