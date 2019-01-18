@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Installs and configures Nginx to server with a Redirect
+
+IDX_FILE=/usr/share/nginx/html/index.html
+D_FILE=/etc/nginx/sites-available/default
+REDIRECT="\\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+ERR_FILE=/usr/share/nginx/html/custom_404.html
+CUSTOM_ERR="\\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\\
+\t\tinternal;\n\t}\n"
+
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+
+echo "Holberton School" | sudo tee $IDX_FILE
+echo "Ceci n'est pas une page" | sudo tee $ERR_FILE
+
+sudo sed -i "30i $REDIRECT" $D_FILE
+sudo sed -i "34i $CUSTOM_ERR" $D_FILE
+
+sudo service nginx restart
