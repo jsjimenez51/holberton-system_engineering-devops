@@ -5,6 +5,6 @@ FILE=/etc/nginx/sites-enabled/default
 OLDPORT='8080 default_server'
 NEWPORT='80 default_server'
 
-sudo sed -i "s/$OLDPORT/$NEWPORT/" $FILE
+sudo sed -i "s/$OLDPORT/$NEWPORT/g" $FILE
 
 sudo service nginx restart
