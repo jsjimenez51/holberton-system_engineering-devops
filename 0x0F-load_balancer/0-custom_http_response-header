@@ -10,6 +10,13 @@ sudo apt-get -y install nginx
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
 
+# creates custom html index page
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+
+# redirection page 300
+REDIRECT="location /redirect_me {\n return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}\n"
+sed -i "30i $REDIRECT" /etc/nginx/sites-available/default
+
 # Adds custom http response header
 C_Header="\\\n\tadd_header X-Served-By $HOSTNAME;\n"
 sudo sed -i "15i $C_Header" /etc/nginx/nginx.conf
