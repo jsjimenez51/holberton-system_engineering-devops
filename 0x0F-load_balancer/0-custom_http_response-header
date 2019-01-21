@@ -11,12 +11,12 @@ echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 
 # pulls config file from Github then renames it to default and moves to folder
 wget https://raw.githubusercontent.com/jsjimenez51/holberton-system_engineering-devops/master/0x0F-load_balancer/default_config
-mv default_config default
-mv default /etc/nginx/sites-available
+sudo mv default_config default
+sudo mv default /etc/nginx/sites-available
 
 # Adds custom 404 page to nginx 
 wget https://raw.githubusercontent.com/jsjimenez51/holberton-system_engineering-devops/master/0x0F-load_balancer/custom_404.html
-mv custom_404.html /usr/share/nginx/html/custom_404.html
+sudo mv custom_404.html /usr/share/nginx/html/custom_404.html
 
 #reload and restart
 sudo service nginx reload
