@@ -17,4 +17,5 @@ server {
        location = /custom_404.html {
        		root /usr/share/nginx/html;
 		internal;
+		}
 }
