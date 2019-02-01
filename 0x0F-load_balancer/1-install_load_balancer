@@ -11,6 +11,6 @@ sudo apt-get -y upgrade
 sudo apt-get -y install haproxy
 
 # Download and place configuration file
-wget https://raw.githubusercontent.com/stephenchu530/holberton-system_engineering-devops/master/0x0F-load_balancer/haproxy.cfg
+https://raw.githubusercontent.com/jsjimenez51/holberton-system_engineering-devops/master/0x0F-load_balancer/HAP_Config1.cfg
 sudo mv haproxy.cfg /etc/haproxy
 sudo service haproxy restart
