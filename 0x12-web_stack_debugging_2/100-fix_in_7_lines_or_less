@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # configures nginx user to be nginx listening on all ips on 8080
-kill "$(netstat -lptn | grep :8080 | awk '{print $NF}' | cut -d'/' -f1)"
-chown -R nginx:nginx /etc/nginx/nginx.conf
-chmod 744 /etc/nginx/nginx.conf
-sed -i 's/80/8080/g' /etc/nginx/sites-available/default
-sudo -u nginx service nginx start
+sudo pkill -f apache2
+sudo sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
+sudo chmod 744 /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo -u nginx service nginx restart
