@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# configures nginx user to be nginx listening on all ips on 8080
+sudo pkill -f apache2
+sudo chmod 744 /etc/nginx/nginx.conf
+sudo chown -R nginx:nginx /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo -u nginx bash -c 'service nginx restart'
