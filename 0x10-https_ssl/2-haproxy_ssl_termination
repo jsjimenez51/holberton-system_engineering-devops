@@ -7,11 +7,11 @@ global
 	user haproxy
 	group haproxy
 	daemon
-	
+
 	# Limits the number of concurrent connections
 	maxconn 1500
 	tune.ssl.default-dh-param 1500
-	
+
 	# Default SSL material locations
 	ca-base /etc/ssl/certs
 	crt-base /etc/ssl/private
@@ -42,19 +42,19 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend www-front-http
-	 bind :80
-	 reqadd X-Forward-Proto:\ http
-	 default_backend www-back
+frontend web-front-http
+	 bind *:80
+	 mode http
+	 default_backend web-backend
 
-frontend www-front-https
-	 bind :443 ssl crt /etc/haproxy/certs/www.bigjoshcodes.online
+frontend web-front-https
+	 bind *:443 ssl crt /etc/haproxy/certs/www.bigjoshcodes.online.pem
 	 reqadd X-Forwarded-Proto:\ https
 	 acl letsencrypt-acl path_beg /.well-known/acme-challenge/
 	 use_backend letsencrypt-backend if letsencrypt-acl
-	 default_backend www-back
+	 default_backend web-backend
 
-backend www-back
+backend web-backend
 	redirect scheme https if !{ ssl_fc }
 	balance roundrobin
 	server web01 34.73.141.155:80 check
