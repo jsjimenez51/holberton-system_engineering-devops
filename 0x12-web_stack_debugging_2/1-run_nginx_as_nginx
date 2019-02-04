@@ -11,6 +11,6 @@ sudo chmod 744 /etc/nginx/nginx.conf
 sudo chown -R nginx:nginx /etc/nginx/nginx.conf
 
 # configure nginx to listen to port 8080
-sudo sed -i 's/80 default/8080 default' /etc/nginx/sites-available/default
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 
 sudo -u nginx bash -c 'service nginx restart'
