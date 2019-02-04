@@ -2,13 +2,13 @@
 # configures nginx user to be nginx listening on all ips on 8080
 
 # stop current service of Apache2 which listens on port 8080
-sudo pkill apache2 -f
+sudo pkill -f apache2
+
+# set user nginx permission
+sudo chmod 744 /etc/nginx/nginx.conf
 
 # change ownership of nginx.conf from root to nginx
 sudo chown -R nginx:nginx /etc/nginx/nginx.conf
-
-# set user nginx permission
-sudo chmod 644 /etc/nginx/nginx.conf
 
 # configure nginx to listen to port 8080
 sudo sed -i 's/80 default/8080 default' /etc/nginx/sites-available/default
