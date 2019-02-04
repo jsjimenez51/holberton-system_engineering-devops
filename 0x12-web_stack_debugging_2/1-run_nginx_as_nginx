@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# configures nginx user to be nginx listening on all ips on 8080
+
+# stop current service of Apache2 which listens on port 8080
+pkill apache2 -f
+
+# change ownership of nginx.conf from root to nginx
+chown -R nginx:nginx /etc/nginx/nginx.conf
+
+# set user nginx permission
+chmod 644 /etc/nginx/nginx.conf
+
+# configure nginx to listen to port 8080
+sed -i 's/80 default/8080 default' /etc/nginx/sites-available/default
+
+sudo -u nginx bash -c 'service nginx restart'
