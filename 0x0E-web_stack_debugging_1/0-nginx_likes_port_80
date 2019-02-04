@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Fixes the web server by fixing the symblink between
-sudo rm -f /etc/nginx/sites-enabled/default
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
