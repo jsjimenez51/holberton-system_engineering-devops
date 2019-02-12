@@ -2,8 +2,8 @@
 """
 Query a REST API for data
 """
-from sys import argv
 from requests import get
+from sys import argv
 
 
 def get_todos(emp_id):
